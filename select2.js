@@ -1928,12 +1928,11 @@ the specific language governing permissions and limitations under the Apache Lic
                 // all other browsers handle this just fine
 
                 this.search.val(this.focusser.val());
-            }
-            if (this.opts.shouldFocusInput(this)) {
+
                 this.search.focus();
+
                 // move the cursor to the end after focussing, otherwise it will be at the beginning and
                 // new text will appear *before* focusser.val()
-                el = this.search.get(0);
                 if (el.createTextRange) {
                     range = el.createTextRange();
                     range.collapse(false);
@@ -1942,14 +1941,14 @@ the specific language governing permissions and limitations under the Apache Lic
                     len = this.search.val().length;
                     el.setSelectionRange(len, len);
                 }
-            }
 
-            // initializes search's value with nextSearchTerm (if defined by user)
-            // ignore nextSearchTerm if the dropdown is opened by the user pressing a letter
-            if(this.search.val() === "") {
-                if(this.nextSearchTerm != undefined){
-                    this.search.val(this.nextSearchTerm);
-                    this.search.select();
+                // initializes search's value with nextSearchTerm (if defined by user)
+                // ignore nextSearchTerm if the dropdown is opened by the user pressing a letter
+                if(this.search.val() === "") {
+                    if(this.nextSearchTerm != undefined){
+                        this.search.val(this.nextSearchTerm);
+                        this.search.select();
+                    }
                 }
             }
 
